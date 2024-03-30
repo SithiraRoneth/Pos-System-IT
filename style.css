@@ -8,3 +8,31 @@
     outline: none;
     margin-right: 40px;
 }
+.home{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: gray;
+    top: 13%;
+}
+.customer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: gold;
+    top: 113%;
+}
+.item{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: orange;
+    top: 213%;
+}
+.placeOrder{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: black;
+    top: 313%;
+}
