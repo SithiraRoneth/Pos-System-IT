@@ -1,0 +1,260 @@
+
+.placeOrder>div:first-child{
+    top: 15%;
+    left: 3%;
+    width: 30%;
+    height: 50%;
+    position: absolute;
+}
+.placeOrder>div:nth-child(2){
+    top: 15%;
+    left: 40%;
+    width: 30%;
+    height: 50%;
+    position: absolute;
+}
+.placeOrder>div:nth-child(3){
+    top: 15%;
+    left: 75%;
+    width: 20%;
+    height: 50%;
+    position: absolute;
+}
+
+
+/*orders section*/
+.placeOrder>div:first-child>div:nth-child(2)>label:first-child{
+    font-size:80%;
+    left: 3%;
+    position: absolute;
+    font-style: italic;
+}
+.placeOrder>div:first-child>div:nth-child(2)>input:nth-child(2){
+    width: 30%;
+    position: absolute;
+    left: 3%;
+    top: 20%;
+}
+/*date*/
+.placeOrder>div:first-child>div:nth-child(2)>label:nth-child(3){
+    font-size:80%;
+    left: 50%;
+    position: absolute;
+    font-style: italic;
+}
+.placeOrder>div:first-child>div:nth-child(2)>input:nth-child(4){
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+}
+/*customer id*/
+.placeOrder>div:first-child>div:nth-child(2)>label:nth-child(5){
+    font-size:80%;
+    left: 3%;
+    top: 35%;
+    position: absolute;
+    font-style: italic;
+}
+.placeOrder>div:first-child>div:nth-child(2)>input:nth-child(6){
+    width: 30%;
+    position: absolute;
+    left: 3%;
+    top:40%;
+}
+/*customer name*/
+.placeOrder>div:first-child>div:nth-child(2)>label:nth-child(7){
+    font-size:80%;
+    left: 50%;
+    top: 35%;
+    position: absolute;
+    font-style: italic;
+}
+.placeOrder>div:first-child>div:nth-child(2)>input:nth-child(8){
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+}
+/*Address*/
+.placeOrder>div:first-child>div:nth-child(2)>label:nth-child(9){
+    font-size:80%;
+    left: 3%;
+    top: 55%;
+    position: absolute;
+    font-style: italic;
+}
+.placeOrder>div:first-child>div:nth-child(2)>input:nth-child(10){
+    width: 60%;
+    position: absolute;
+    left: 3%;
+    top: 60%;
+}
+/*salary*/
+.placeOrder>div:first-child>div:nth-child(2)>label:nth-child(11){
+    font-size:80%;
+    left: 3%;
+    top: 75%;
+    position: absolute;
+    font-style: italic;
+}
+.placeOrder>div:first-child>div:nth-child(2)>input:nth-child(12){
+    width: 60%;
+    position: absolute;
+    left: 3%;
+    top: 80%;
+}
+
+/*Item Select*/
+.placeOrder>div:nth-child(2)>div:nth-child(2)>label:first-child{
+    font-size:80%;
+    left: 3%;
+    position: absolute;
+    font-style: italic;
+}
+.placeOrder>div:nth-child(2)>div:nth-child(2)>input:nth-child(2){
+    width: 30%;
+    position: absolute;
+    left: 3%;
+    top: 20%;
+}
+/*item code*/
+.placeOrder>div:nth-child(2)>div:nth-child(2)>label:nth-child(3){
+    font-size:80%;
+    left: 50%;
+    position: absolute;
+    font-style: italic;
+}
+.placeOrder>div:nth-child(2)>div:nth-child(2)>input:nth-child(4){
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+}
+
+/*Item Name*/
+.placeOrder>div:nth-child(2)>div:nth-child(2)>label:nth-child(5){
+    font-size:80%;
+    left: 3%;
+    top: 35%;
+    position: absolute;
+    font-style: italic;
+}
+.placeOrder>div:nth-child(2)>div:nth-child(2)>input:nth-child(6){
+    width: 30%;
+    position: absolute;
+    left: 3%;
+    top:40%;
+}
+/*Item price*/
+.placeOrder>div:nth-child(2)>div:nth-child(2)>label:nth-child(7){
+    font-size:80%;
+    left: 40%;
+    top: 35%;
+    position: absolute;
+    font-style: italic;
+}
+.placeOrder>div:nth-child(2)>div:nth-child(2)>input:nth-child(8){
+    width: 20%;
+    position: absolute;
+    left: 40%;
+    top: 40%;
+}
+
+/*Item Qty*/
+.placeOrder>div:nth-child(2)>div:nth-child(2)>label:nth-child(9){
+    font-size:80%;
+    left: 70%;
+    top: 35%;
+    position: absolute;
+    font-style: italic;
+}
+.placeOrder>div:nth-child(2)>div:nth-child(2)>input:nth-child(10){
+    width: 25%;
+    position: absolute;
+    left: 70%;
+    top: 40%;
+}
+
+/*Order qty*/
+.placeOrder>div:nth-child(2)>div:nth-child(2)>label:nth-child(11){
+    font-size:80%;
+    left: 3%;
+    top: 55%;
+    position: absolute;
+    font-style: italic;
+}
+.placeOrder>div:nth-child(2)>div:nth-child(2)>input:nth-child(12){
+    width: 60%;
+    position: absolute;
+    left: 3%;
+    top: 60%;
+}
+
+/*Purchase*/
+.placeOrder>div:nth-child(3)>div>label:first-child{
+    font-size:150%;
+    left: 5%;
+    position: absolute;
+    font-style: italic;
+    color: red;
+}
+.placeOrder>div:nth-child(3)>div>label:nth-child(2){
+    font-size:150%;
+    left: 5%;
+    top: 15%;
+    position: absolute;
+    font-style: italic;
+    color: blue;
+}
+
+/*cash*/
+.placeOrder>div:nth-child(3)>div>label:nth-child(3){
+    font-size:80%;
+    left: 3%;
+    top: 45%;
+    position: absolute;
+    font-style: italic;
+}
+.placeOrder>div:nth-child(3)>div>input:nth-child(4){
+    width: 40%;
+    position: absolute;
+    left: 3%;
+    top: 50%;
+}
+
+/*discount*/
+.placeOrder>div:nth-child(3)>div>label:nth-child(5){
+    font-size:80%;
+    left: 50%;
+    top: 45%;
+    position: absolute;
+    font-style: italic;
+}
+.placeOrder>div:nth-child(3)>div>input:nth-child(6){
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+/*Balance*/
+.placeOrder>div:nth-child(3)>div>label:nth-child(7){
+    font-size:80%;
+    left: 3%;
+    top: 65%;
+    position: absolute;
+    font-style: italic;
+}
+.placeOrder>div:nth-child(3)>div>input:nth-child(8){
+    width: 60%;
+    position: absolute;
+    left: 3%;
+    top: 70%;
+}
+
+/*table*/
+.placeOrder>table{
+    position: absolute;
+    top: 70%;
+}
