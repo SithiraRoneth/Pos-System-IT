@@ -25,20 +25,20 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: white;
+    background-color: #F1EEDC;
     top: 113%;
 }
 .item{
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: grey;
+    background-color: #EEE4B1;
     top: 213%;
 }
 .placeOrder{
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: white;
+    background-color: #9CAFAA;
     top: 313%;
 }
