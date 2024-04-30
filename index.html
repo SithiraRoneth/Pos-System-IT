@@ -161,6 +161,117 @@
 </section>
 
 <!--Order-->
+<section class="placeOrder" id="order-section">
+  <!--invoice-->
+  <div class="card text-center">
+    <div class="card-header" style="background: pink">
+      Invoice Details
+    </div>
+    <div class="card-body">
+      <label for="id">Order Id :</label>
+      <input type="text"  id="id" placeholder="Order Id">
+
+      <label for="date">Date</label>
+      <input type="date" id="date">
+
+      <label for="cus">Customer Id :</label>
+      <input type="text"  id="cus" placeholder="Id">
+
+      <label for="name">Customer Name :</label>
+      <input type="text"  id="name" placeholder="Name">
+
+      <label for="address">Address :</label>
+      <input type="text"  id="address" placeholder="Address">
+
+      <label for="salary">Salary :</label>
+      <input type="number"  id="salary" placeholder="Address">
+
+    </div>
+  </div>
+
+  <!--Item select-->
+  <div class="card text-center">
+    <div class="card-header" style="background: lightskyblue">
+      Item Select
+    </div>
+    <div class="card-body">
+      <label for="itemn">Item :</label>
+      <input type="text" id="itemn" placeholder="Item">
+
+      <label for="code">Item code :</label>
+      <input type="text" id="code" placeholder="Item Code">
+
+      <label for="itemName">Item Name :</label>
+      <input type="text" id="itemName" placeholder="Item Name">
+
+      <label for="price">Item Price :</label>
+      <input type="text" id="price" placeholder="Price">
+
+      <label for="qty">QtyOnHand :</label>
+      <input type="text" id="qty" placeholder="QtyOnHand">
+
+      <label for="qt">Order Qty :</label>
+      <input type="text" id="qt" placeholder="Order Qty">
+
+    </div>
+    <div class="card-footer text-body-secondary">
+      <button type="button" class="btn btn-outline-info">Add Item</button>
+    </div>
+  </div>
+
+  <!--price-->
+  <div class="card text-center">
+    <div class="card-body" style="background: lightgrey">
+      <label>Total : 2700/=</label>
+      <label>Sub Total : 2500/=</label>
+
+      <label for="cash">Cash :</label>
+      <input type="number"  id="cash" placeholder="Cash">
+
+      <label for="discount">Discount :</label>
+      <input type="number"  id="discount" placeholder="%">
+
+      <label for="balance">Balance :</label>
+      <input type="number"  id="balance" placeholder="Balance">
+
+
+
+    </div>
+    <div class="card-footer text-body-secondary">
+      <button type="button" class="btn btn-outline-success">Purchase</button>
+    </div>
+  </div>
+
+  <!--<table class="table table-striped table table">
+    <thead>
+    <tr>
+      <th scope="col">Item Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+    </tbody>
+  </table>-->
+</section>
 
 <script src="assets/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -173,12 +284,19 @@
     display:'none'
   });
 
+  $('#order-section').css({
+    display:'none'
+  });
+
   $('#nav-customer').on('click',()=>{
     $('#Customer-section').css({
       display:'block'
     });
     $('#Item-section').css({
       display: 'none'
+    });
+    $('#order-section').css({
+      display:'none'
     });
   });
 
@@ -189,8 +307,22 @@
     $('#Customer-section').css({
       display: 'none'
     });
+    $('#order-section').css({
+      display:'none'
+    });
   });
 
+  $('#nav-order').on('click',()=>{
+    $('#order-section').css({
+      display:'block'
+    });
+    $('#Customer-section').css({
+      display: 'none'
+    });
+    $('#Item-section').css({
+      display: 'none'
+    });
+  });
 </script>
 </body>
 </html>
