@@ -253,8 +253,8 @@
     top: 70%;
 }
 
-/*table*/
-.placeOrder>table{
+.tableOrder{
     position: absolute;
-    top: 70%;
+    left: 5%;
+    width: 90%;
 }

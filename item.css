@@ -1,0 +1,50 @@
+.item{
+    position: absolute;
+    left: 10%;
+    top: 12%;
+}
+#item{
+    width: 10%;
+}
+.item-card{
+    position: absolute;
+    left: 10%;
+    top: 25%;
+    width: 80%;
+    height: 70%;
+}
+.card-search{
+    background: darkblue;
+    color: white;
+}
+.newItem{
+    position: absolute;
+    right: 14%;
+    top: 2%;
+}
+.viewItem{
+    position: absolute;
+    right: 2%;
+    top: 2%;
+}
+.deleteI{
+    position: absolute;
+    left: 0;
+    top: 120%;
+}
+.updateI{
+    position: absolute;
+    left: 8%;
+    top: 120%;
+}
+.clearI{
+    position: absolute;
+    left: 16%;
+    top: 120%;
+}
+.tableI{
+    position: absolute;
+    left: 7%;
+    top: 190%;
+    width: 80%;
+}
