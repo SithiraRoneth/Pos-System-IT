@@ -252,9 +252,7 @@
     left: 3%;
     top: 70%;
 }
-
-.tableOrder{
+.table-Order{
     position: absolute;
-    left: 5%;
-    width: 90%;
+    top: 75%;
 }
