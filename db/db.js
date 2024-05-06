@@ -1,3 +1,3 @@
 export var customers = [];
-var items = [];
+export var items = [];
 var orders = [];
