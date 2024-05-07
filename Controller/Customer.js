@@ -187,3 +187,19 @@ $("#customer-delete").on('click',() =>{
    loadTable();
 });
 
+$("#customer-search").on("click", function() {
+   var searchCustomerId = $("#customerSearchID").val().trim();
+   var foundCustomer = customers.find(customer => customer.id === searchCustomerId);
+
+   if (foundCustomer) {
+      $("#customerID").val(foundCustomer.id);
+      $("#customerName").val(foundCustomer.name);
+      $("#customerAddress").val(foundCustomer.address);
+      $("#customerPhone").val(foundCustomer.contact);
+
+      $("#newCustomerModal").modal("show");
+   } else {
+      alert("Customer not found.");
+   }
+});
+

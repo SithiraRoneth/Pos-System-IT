@@ -140,3 +140,19 @@ $("#item-delete").on('click',() =>{
    clearInput();
    loadTable();
 });
+
+$("#item-search").on('click', function (){
+   var searchItemId = $("#itemSearchID").val().trim();
+   var foundItem = items.find(item => item.name === searchItemId);
+
+   if (foundItem){
+      $("#itemName").val(foundItem.name);
+      $("#itemDescription").val(foundItem.description);
+      $("#itemQuantity").val(foundItem.qty);
+      $("#itemPrice").val(foundItem.price);
+
+      $("#newItemModal").modal("show");
+   }else {
+      alert("Item not found")
+   }
+});
