@@ -114,7 +114,25 @@
     </div>
   </div>
 
+  <!--Validation Modal-->
+  <div class="modal fade" id="customerValidation" tabindex="-1" aria-labelledby="validationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="validationModalLabel">Validation Error</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="validationMessage"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
 <!--Item-->
 <section id="Item-section">
   <p class="h3 item"><img src="assets/item.png" alt="customer" id="item">Item</p>
@@ -176,7 +194,7 @@
 
         <table class="table table-striped table-Item">
           <thead>
-          <tr>
+          <tr id="table-Item tr">
             <th scope="col">Item Id</th>
             <th scope="col">Description</th>
             <th scope="col">Quantity</th>
@@ -189,8 +207,27 @@
       </div>
     </div>
   </div>
+  <!--Validation Modal-->
+  <div class="modal fade" id="itemValidation" tabindex="-1" aria-labelledby="validationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="itemvalidationModalLabel">Validation Error</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="itemvalidationMessage"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 </section>
+
 <!--Order-->
 <section class="placeOrder" id="order-section">
   <div class="container-fluid">
@@ -206,16 +243,16 @@
             </select>
           </div>
           <div class="col-md-6">
-            <label for="itemDesc" class="form-label">Item Name</label>
-            <input type="text" class="form-control" id="itemDesc" disabled>
+            <label for="itemName" class="form-label">Item Name</label>
+            <input type="text" class="form-control" id="itemName" disabled>
           </div>
           <div class="col-12">
             <label for="Unit Price" class="form-label">Unit Price</label>
             <input type="text" class="form-control" id="Unit Price">
           </div>
           <div class="col-12">
-            <label for="Qty on hand" class="form-label">Qty on hand</label>
-            <input type="text" class="form-control" id="Qty on hand">
+            <label for="Qty" class="form-label">Qty on hand</label>
+            <input type="text" class="form-control" id="Qty">
           </div>
           <div class="col-12">
             <label for="Quantity" class="form-label">Order Quantity</label>

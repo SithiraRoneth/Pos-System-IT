@@ -15,7 +15,7 @@ function loadTable(){
         $("#table-Customer").append(record);
     });
 }
-$('#customer-save').on('click',() =>{
+/*$('#customer-save').on('click',() =>{
    var customerId = $('#customerID').val();
    var customerName = $('#customerName').val();
    var customerAddress = $('#customerAddress').val();
@@ -32,22 +32,8 @@ $('#customer-save').on('click',() =>{
 
    $("#customer-reset").click();
 });
-function generateCustomerId() {
-   var prefix = "CUST";
-   var randomId = Math.floor(Math.random() * 1000);
-   var customerId = prefix + randomId;
 
-   // Check if the generated ID already exists
-   while (customers.some(customer => customer.id === customerId)) {
-      randomId = Math.floor(Math.random() * 1000);
-      customerId = prefix + randomId;
-   }
-
-   return customerId;
-}
-
-
-/*$("#customer-update").on('click',() =>{
+/!*$("#customer-update").on('click',() =>{
    var customerId = $('#customerID').val();
    var customerName = $('#customerName').val();
    var customerAddress = $('#customerAddress').val();
@@ -59,7 +45,7 @@ function generateCustomerId() {
 
    loadTable(customerUpdate);
    $("#customer-reset").click();
-});*/
+});*!/
 $("#customer-update").on("click", function() {
    // Get updated data from modal fields
    var customerId = $('#customerID').val();
@@ -85,29 +71,102 @@ $("#customer-delete").on('click',() =>{
    customers.splice(recordIndex,1);
    loadTable();
    $("#customer-reset").click();
-});
-
-/*$("#table-Customer").on('click','tr',() =>{
-   let index = $(this).index();
-   recordIndex = index;
-
-   console.log(index);
-
-   let id = $(this).find(".customer-id-value").text();
-   let name = $(this).find(".customer-name-value").text();
-   let address = $(this).find(".customer-address-value").text();
-   let contact = $(this).find(".customer-contact-value").text();
-
-   $("#customerID").val(id);
-   $("#customerName").val(name);
-   $("#customerAddress").val(address);
-   $("#customerPhone").val(contact);
-
-   $("#newCustomerModal").modal("show");
 });*/
 
+function inputClear(){
+   $("#customerID").val('');
+   $("#customerName").val('');
+   $("#customerAddress").val('');
+   $("#customerPhone").val('');
+
+}
+function validateField(value, pattern, errorMessage) {
+   if (!pattern.test(value)) {
+      $('#validationMessage').text(errorMessage);
+      $('#customerValidation').modal('show');
+      return false;
+   }
+   return true;
+}
+
+$('#customer-save').on('click',() =>{
+   var customerId = $('#customerID').val().trim();
+   var customerName = $('#customerName').val().trim();
+   var customerAddress = $('#customerAddress').val().trim();
+   var customerContact = $('#customerPhone').val().trim();
+
+   // Validation patterns
+   var idPattern = /^[a-zA-Z0-9]{4,}$/;
+   var namePattern = /^[a-zA-Z\s]{5,}$/;
+   var addressPattern = /.+/;
+   var contactPattern = /^\d{10}$/;
+
+   // Validate fields
+   if (!validateField(customerId, idPattern, 'Please enter a valid customer ID '))
+      return;
+   if (!validateField(customerName, namePattern, 'Please enter a valid name'))
+      return;
+   if (!validateField(customerAddress, addressPattern, 'Please enter a valid  address.'))
+      return;
+   if (!validateField(customerContact, contactPattern, 'Please enter a valid contact number.'))
+      return;
+
+   // If all fields are valid, proceed with saving
+   let customer = new CustomerModel(
+       customerId,customerName,customerAddress,customerContact
+   );
+
+   customers.push(customer);
+   console.log(customer);
+   loadTable();
+   inputClear();
+   $("#newCustomerModal").modal("hide");
+
+   $("#customer-reset").click();
+});
+
+$("#customer-update").on("click", function() {
+   var customerId = $('#customerID').val().trim();
+   var customerName = $('#customerName').val().trim();
+   var customerAddress = $('#customerAddress').val().trim();
+   var customerContact = $('#customerPhone').val().trim();
+
+   // Validation patterns
+   var idPattern = /^[a-zA-Z0-9]{4,}$/;
+   var namePattern = /^[a-zA-Z\s]{5,}$/;
+   var addressPattern = /.+/;
+   var contactPattern = /^\d{10}$/;
+
+   // Validate fields
+   if (!validateField(customerId, idPattern, 'Please enter a valid customer ID '))
+      return;
+   if (!validateField(customerName, namePattern, 'Please enter a valid name '))
+      return;
+   if (!validateField(customerAddress, addressPattern, 'Please enter a valid address.'))
+      return;
+   if (!validateField(customerContact, contactPattern, 'Please enter a valid contact number.'))
+      return;
+
+
+   $("#table-Customer tr").eq(recordIndex).find(".customer-id-value").text(customerId);
+   $("#table-Customer tr").eq(recordIndex).find(".customer-name-value").text(customerName);
+   $("#table-Customer tr").eq(recordIndex).find(".customer-address-value").text(customerAddress);
+   $("#table-Customer tr").eq(recordIndex).find(".customer-contact-value").text(customerContact);
+
+   let customerUpdate = new CustomerModel(
+       customerId,customerName,customerAddress,customerContact
+   );
+   customers[recordIndex] = customerUpdate;
+
+   loadTable();
+   inputClear();
+
+   $("#newCustomerModal").modal("hide");
+});
 
 $("#table-Customer").on("click", "tr", function() {
+   // Get the index of the clicked row
+   recordIndex = $(this).index();
 
    let id = $(this).find(".customer-id-value").text();
    let name = $(this).find(".customer-name-value").text();
@@ -121,3 +180,10 @@ $("#table-Customer").on("click", "tr", function() {
 
    $("#newCustomerModal").modal("show");
 });
+
+$("#customer-delete").on('click',() =>{
+   customers.splice(recordIndex,1);
+   inputClear();
+   loadTable();
+});
+
