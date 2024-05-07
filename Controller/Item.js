@@ -1,5 +1,5 @@
 import ItemModel from "../model/ItemModel.js";
-import {items} from "../db/db.js";
+import {customers, items} from "../db/db.js";
 
 var recordIndex;
 
@@ -24,22 +24,6 @@ function clearInput(){
    $("#itemQuantity").val('');
    $("#itemPrice").val('');
 }
-
-/*$("#item-save").on('click',() =>{
-   var itemName = $('#itemName').val();
-   var itemDesc = $('#itemDescription').val();
-   var itemQty = $('#itemQuantity').val();
-   var itemPrice = $('#itemPrice').val();
-
-   let item = new ItemModel(
-     itemName,itemDesc,itemQty,itemPrice
-   );
-
-   items.push(item);
-   loadTable(item);
-   clearInput();
-   $("#newItemModal").modal("hide");
-});*/
 function validateField(value, pattern, errorMessage) {
    if (!pattern.test(value)) {
       $('#itemvalidationMessage').text(errorMessage);
@@ -48,18 +32,29 @@ function validateField(value, pattern, errorMessage) {
    }
    return true;
 }
+function generateNextItemId() {
+   // Find the last customer ID in the customers array
+   const lastItemId = items.length > 0 ? items[items.length - 1].name : 'I000';
 
+   // Extract the numeric part of the ID and increment it
+   const numericPart = parseInt(lastItemId.substring(1), 10) + 1;
+
+   // Format the new ID with leading zeros
+   const newId = 'I' + numericPart.toString().padStart(3, '0');
+
+   return newId;
+}
 $("#item-save").on('click',() =>{
-   var itemName = $('#itemName').val().trim();
+   var itemName = generateNextItemId();
    var itemDesc = $('#itemDescription').val().trim();
    var itemQty = $('#itemQuantity').val().trim();
    var itemPrice = $('#itemPrice').val().trim();
 
    // Validation patterns
-   var namePattern = /.+/; // Any non-empty string
-   var descriptionPattern = /.+/; // Any non-empty string
-   var quantityPattern = /^[1-9]\d*$/; // Positive integer (does not allow zero)
-   var pricePattern = /^\d+(\.\d{1,2})?$/; // Decimal number with up to 2 decimal places
+   var namePattern = /.+/;
+   var descriptionPattern = /.+/;
+   var quantityPattern = /^[1-9]\d*$/;
+   var pricePattern = /^\d+(\.\d{1,2})?$/;
 
    // Validate fields
    if (!validateField(itemName, namePattern, 'Please enter a valid item name.'))
@@ -81,7 +76,7 @@ $("#item-save").on('click',() =>{
    $("#newItemModal").modal("hide");
 });
 
-$("#item-update").on('click',() =>{
+$("#item-update").on('click', () => {
    var itemName = $('#itemName').val().trim();
    var itemDesc = $('#itemDescription').val().trim();
    var itemQty = $('#itemQuantity').val().trim();
@@ -103,17 +98,25 @@ $("#item-update").on('click',() =>{
    if (!validateField(itemPrice, pricePattern, 'Please enter a valid price'))
       return;
 
+   // Update table with new values
    $("#table-Item tr").eq(recordIndex).find(".item-name-value").text(itemName);
-   $("#table-Item tr").eq(recordIndex).find(".item-decription-value").text(itemDesc);
+   $("#table-Item tr").eq(recordIndex).find(".item-description-value").text(itemDesc);
    $("#table-Item tr").eq(recordIndex).find(".item-qty-value").text(itemQty);
    $("#table-Item tr").eq(recordIndex).find(".item-price-value").text(itemPrice);
 
+   // Update items array
    let itemUpdate = new ItemModel(
-     itemName,itemDesc,itemQty,itemPrice
+       itemName, itemDesc, itemQty, itemPrice
    );
    items[recordIndex] = itemUpdate;
+
+   // Reload table
    loadTable();
+
+   // Clear input fields
    clearInput();
+
+   // Hide modal
    $("#newItemModal").modal("hide");
 });
 

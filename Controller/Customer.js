@@ -88,9 +88,21 @@ function validateField(value, pattern, errorMessage) {
    }
    return true;
 }
+function generateNextCustomerId() {
+   // Find the last customer ID in the customers array
+   const lastCustomerId = customers.length > 0 ? customers[customers.length - 1].id : 'C000';
+
+   // Extract the numeric part of the ID and increment it
+   const numericPart = parseInt(lastCustomerId.substring(1), 10) + 1;
+
+   // Format the new ID with leading zeros
+   const newId = 'C' + numericPart.toString().padStart(3, '0');
+
+   return newId;
+}
 
 $('#customer-save').on('click',() =>{
-   var customerId = $('#customerID').val().trim();
+   var customerId = generateNextCustomerId();
    var customerName = $('#customerName').val().trim();
    var customerAddress = $('#customerAddress').val().trim();
    var customerContact = $('#customerPhone').val().trim();
