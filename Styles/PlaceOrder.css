@@ -1,0 +1,29 @@
+.left-pane {
+    padding: 5%;
+    left: 4%;
+    top: 15%;
+    position: absolute;
+    width: 45vw;
+    border: 2px solid #04afaf;
+    border-radius: 10%;
+    background: #04afaf;
+}
+
+.right-pane {
+    padding: 5%;
+    margin-top: 0px;
+    margin-left: 50vw;
+    width: 45vw;
+    height: 85%;
+    position: absolute;
+    top: 10%;
+    border: 2px solid pink;
+    border-radius: 10%;
+    background: pink;
+}
+
+
+.table{
+    position: absolute;
+    top: 110%;
+}
