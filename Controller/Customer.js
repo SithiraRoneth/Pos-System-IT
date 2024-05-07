@@ -1,4 +1,4 @@
-import CustomerModel from "../model/CustomerModel";
+import CustomerModel from "../model/CustomerModel.js";
 import {customers} from "../db/db.js";
 
 var recordIndex;
@@ -26,13 +26,28 @@ $('#customer-save').on('click',() =>{
    );
 
    customers.push(customer);
-
+   console.log(customer);
    loadTable();
+   $("#newCustomerModal").modal("hide");
 
    $("#customer-reset").click();
 });
+function generateCustomerId() {
+   var prefix = "CUST";
+   var randomId = Math.floor(Math.random() * 1000);
+   var customerId = prefix + randomId;
 
-$("#customer-update").on('click',() =>{
+   // Check if the generated ID already exists
+   while (customers.some(customer => customer.id === customerId)) {
+      randomId = Math.floor(Math.random() * 1000);
+      customerId = prefix + randomId;
+   }
+
+   return customerId;
+}
+
+
+/*$("#customer-update").on('click',() =>{
    var customerId = $('#customerID').val();
    var customerName = $('#customerName').val();
    var customerAddress = $('#customerAddress').val();
@@ -44,6 +59,26 @@ $("#customer-update").on('click',() =>{
 
    loadTable(customerUpdate);
    $("#customer-reset").click();
+});*/
+$("#customer-update").on("click", function() {
+   // Get updated data from modal fields
+   var customerId = $('#customerID').val();
+   var customerName = $('#customerName').val();
+   var customerAddress = $('#customerAddress').val();
+   var customerContact = $('#customerPhone').val();
+
+   // Update the corresponding row data in the table
+   $("#table-Customer tr").eq(recordIndex).find(".customer-id-value").text(customerId);
+   $("#table-Customer tr").eq(recordIndex).find(".customer-name-value").text(customerName);
+   $("#table-Customer tr").eq(recordIndex).find(".customer-address-value").text(customerAddress);
+   $("#table-Customer tr").eq(recordIndex).find(".customer-contact-value").text(customerContact);
+
+   let customerUpdate = new CustomerModel(
+       customerId,customerName,customerAddress,customerContact
+   );
+   loadTable(customerUpdate);
+   // Close the modal window
+   $("#newCustomerModal").modal("hide");
 });
 
 $("#customer-delete").on('click',() =>{
@@ -52,7 +87,7 @@ $("#customer-delete").on('click',() =>{
    $("#customer-reset").click();
 });
 
-$("#table-Customer").on('click','tr',() =>{
+/*$("#table-Customer").on('click','tr',() =>{
    let index = $(this).index();
    recordIndex = index;
 
@@ -67,4 +102,22 @@ $("#table-Customer").on('click','tr',() =>{
    $("#customerName").val(name);
    $("#customerAddress").val(address);
    $("#customerPhone").val(contact);
+
+   $("#newCustomerModal").modal("show");
+});*/
+
+
+$("#table-Customer").on("click", "tr", function() {
+
+   let id = $(this).find(".customer-id-value").text();
+   let name = $(this).find(".customer-name-value").text();
+   let address = $(this).find(".customer-address-value").text();
+   let contact = $(this).find(".customer-contact-value").text();
+
+   $("#customerID").val(id);
+   $("#customerName").val(name);
+   $("#customerAddress").val(address);
+   $("#customerPhone").val(contact);
+
+   $("#newCustomerModal").modal("show");
 });

@@ -8,7 +8,7 @@ export default class CustomerModel{
     get id(){
         return this._id;
     }
-    get Name(){
+    get name(){
         return this._name;
     }
     get address(){
