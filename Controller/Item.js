@@ -19,7 +19,7 @@ function loadTable(){
 }
 
 function clearInput(){
-   $("#itemName").val('');
+   $("#itemName").val(generateNextItemId());
    $("#itemDescription").val('');
    $("#itemQuantity").val('');
    $("#itemPrice").val('');

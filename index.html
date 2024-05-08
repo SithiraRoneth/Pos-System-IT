@@ -53,7 +53,7 @@
           <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
               <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Input Name/Nic Here" aria-label="Search" id="customerSearchID">
+                <input class="form-control me-2" type="search" placeholder="Input Customer ID Here" aria-label="Search" id="customerSearchID">
                 <button class="btn btn-outline-success" type="button" id="customer-search">Search</button>
               </form>
             </div>
@@ -91,7 +91,7 @@
                 <button type="button" class="btn btn-primary" id="customer-save">Save</button>
                 <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" id="customer-update">Update </button>
                 <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" id="customer-delete">Delete</button>
-                <button type="reset" class="btn btn-warning" id="customer-reset">Reset</button>
+                <!--<button type="reset" class="btn btn-warning" id="customer-reset">Reset</button>-->
               </div>
             </div>
           </div>
@@ -235,30 +235,26 @@
         <h1>Items</h1>
         <form class="row g-3">
           <div class="col-md-6">
-            <label for="Item Code" class="form-label">Item Code</label>
-            <select class="form-select" aria-label="Disabled select example" id="Item Code">
+            <label for="item_code" class="form-label">Item Code</label>
+            <select class="form-select" aria-label="Disabled select example" id="item_code">
               <option selected>Select Item Code</option>
             </select>
           </div>
           <div class="col-md-6">
             <label for="itemName" class="form-label">Item Name</label>
-            <input type="text" class="form-control" id="itemName" disabled>
+            <input type="text" class="form-control" id="item_name1" disabled>
           </div>
           <div class="col-12">
-            <label for="Unit Price" class="form-label">Unit Price</label>
-            <input type="text" class="form-control" id="Unit Price">
+            <label for="price1" class="form-label">Unit Price</label>
+            <input type="text" class="form-control" id="price1" disabled>
           </div>
           <div class="col-12">
-            <label for="Qty" class="form-label">Qty on hand</label>
-            <input type="text" class="form-control" id="Qty">
+            <label for="qty_on_hand" class="form-label">Qty on hand</label>
+            <input type="text" class="form-control" id="qty_on_hand" disabled>
           </div>
           <div class="col-12">
-            <label for="Quantity" class="form-label">Order Quantity</label>
-            <input type="Number" class="form-control" id="Quantity">
-          </div>
-          <div class="col-md-4">
-            <label for="Sub Total" class="form-label">Sub Total</label>
-            <input type="text" class="form-control" id="Sub Total">
+            <label for="getQty" class="form-label">Order Quantity</label>
+            <input type="Number" class="form-control" id="getQty">
           </div>
           <div class="col-12">
             <button type="submit" class="btn btn-primary">Add to cart</button>
@@ -270,36 +266,44 @@
         <h1>Order</h1>
         <form class="row g-3">
           <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Order Id</label>
-            <input type="number" class="form-control" id="inputEmail4">
+            <label for="order-id" class="form-label">Order Id</label>
+            <input type="number" class="form-control" id="order-id" disabled>
           </div>
-          <div class="col-md-6">
+          <div class="col-12">
+            <label for="order-date" class="form-label">Date</label>
+            <input type="date" class="form-control" id="order-date" disabled>
+          </div>
+          <div class="m-3 col-md-11">
             <label for="customer_id" class="form-label">Customer Id</label>
             <select class="form-select" aria-label="Disabled select example" id="customer_id">
               <option selected>Select Customer Id</option>
             </select>
           </div>
-          <div class="col-12">
-            <label for="inputAddress2" class="form-label">Customer Name</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="" disabled>
-          </div>
-          <div class="col-12">
-            <label for="inputAddress" class="form-label">Date</label>
-            <input type="date" class="form-control" id="inputAddress" placeholder="YYYY/MM/DD">
+          <div class="col-md-6">
+            <label for="customer_name1" class="form-label">Customer Name</label>
+            <input type="text" class="form-control" id="customer_name1" placeholder="" disabled>
           </div>
           <div class="col-md-4">
-            <label for="inputCity" class="form-label">Total</label>
-            <input type="text" class="form-control" id="inputCity">
+            <label for="total" class="form-label">Total</label>
+            <input type="text" class="form-control" id="total">
           </div>
           <div class="col-md-4">
-            <label for="inputDiscount" class="form-label">Discount</label>
-            <input type="text" class="form-control" id="inputDiscount">
+            <label for="discount" class="form-label">Discount</label>
+            <input type="text" class="form-control" id="discount">
           </div>
           <div class="col-md-4">
-            <label for="inputZip" class="form-label">Sub Total</label>
-            <input type="text" class="form-control" id="inputZip">
+            <label for="sub_total" class="form-label">Sub Total</label>
+            <input type="text" class="form-control" id="sub_total">
+          </div>
+          <div class="m-3 col-md-11">
+            <label for="Cash" class="form-label">Cash </label>
+            <input type="number" class="form-control" id="Cash" placeholder="Cash Here">
           </div>
 
+          <div class="m-3 col-md-11">
+            <label for="balance" class="form-label">Balance </label>
+            <input type="number" class="form-control" id="balance" placeholder="Balance Here" disabled>
+          </div>
           <div class="col-12">
             <button type="submit" class="btn btn-primary">Buy</button>
           </div>
@@ -307,7 +311,7 @@
       </div>
 
       <div class="col-md-12 table-pane" style="margin-top: 0;">
-        <table class="table">
+        <table class="table-Order">
           <thead>
           <tr>
             <th scope="col">Code</th>
@@ -330,5 +334,6 @@
 <script src="Controller/Spa.js"></script>
 <script type="module" src="Controller/Customer.js"></script>
 <script type="module" src="Controller/Item.js"></script>
+<script type="module" src="Controller/Order.js"></script>
 </body>
 </html>

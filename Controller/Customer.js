@@ -74,7 +74,7 @@ $("#customer-delete").on('click',() =>{
 });*/
 
 function inputClear(){
-   $("#customerID").val('');
+   $("#customerID").val(generateNextCustomerId());
    $("#customerName").val('');
    $("#customerAddress").val('');
    $("#customerPhone").val('');

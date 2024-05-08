@@ -17,13 +17,16 @@
     height: 85%;
     position: absolute;
     top: 10%;
-    border: 2px solid pink;
+    border: 2px solid #ffd649;
     border-radius: 10%;
-    background: pink;
+    background: #ffd649;
 }
 
 
-.table{
+.table-Order{
     position: absolute;
-    top: 110%;
+    top: 98%;
+    left: 55%;
+    width: 500px;
 }
+
